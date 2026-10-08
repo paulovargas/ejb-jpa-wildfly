@@ -1,0 +1,4 @@
+body { margin: 0; background: #fafafa; }
+.api-header { padding: 24px max(20px, calc((100% - 1460px) / 2)); color: #f8fafc; background: #152238; font-family: Arial, sans-serif; }
+.api-header h1 { margin: 0 0 12px; font-size: 24px; }
+.api-header p { margin: 0; line-height: 1.6; }

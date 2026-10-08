@@ -65,6 +65,8 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Configuração de segurança falhou.' }
   & $javaExecutable @cliArguments '--command=deploy target/ejb-jpa-wildfly.war --force'
   if ($LASTEXITCODE -ne 0) { throw 'Deploy falhou. Consulte os logs do servidor.' }
+  & $nodeExecutable 'scripts/test-swagger.mjs'
+  if ($LASTEXITCODE -ne 0) { throw 'Testes Swagger/OpenAPI falharam.' }
   & $nodeExecutable 'scripts/test-auth.mjs'
   if ($LASTEXITCODE -ne 0) { throw 'Testes HTTP falharam.' }
   Write-Output 'Integração validada no WildFly 26.1.3.Final com H2. MariaDB requer validação no ambiente configurado.'
